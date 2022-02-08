@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.secret_key = "super key"
 app.config["MYSQL_HOST"] = "localhost"
 app.config["MYSQL_USER"] = "root"
-app.config["MYSQL_PASSWORD"] = "root"
+app.config["MYSQL_PASSWORD"] = "1234"
 app.config["MYSQL_DB"] = "RMS"
 
 
@@ -154,15 +154,14 @@ def con():
                     (Citation, Author_ID, Conference_Title, Name_of_Journal, Date, Publisher, Page_No, Year))
         mysql.connection.commit()
         cur.close()
-        return redirect(url_for('static', filename='profile.html'))
+        return redirect(url_for('static', filename='loginClick.html'))
         # return redirect ('{{url_for('static',filename = 'project.html')}}')
 
     print("hiiiiiiiiiiiiiiii")
     return render_template('conferences.html')
 
+
 # view conference
-
-
 @app.route('/static/viewCon.html', methods=['Get', 'POST'])
 def viewCon():
     cur = mysql.connection.cursor()
